@@ -1,0 +1,11 @@
+{# templates/article/show.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.content }}</p>
+    <a href="{{ path('article_index') }}" class="btn btn-secondary">Retour à la liste</a>
+    <a href="{{ path('article_edit', {id: article.id}) }}" class="btn btn-secondary">Modifier l'article</a>
+{% endblock %}
