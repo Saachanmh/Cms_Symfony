@@ -1,17 +1,69 @@
+{# templates/base.html.twig #}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Wordbraise{% endblock %}</title>
+    <style>
+        body body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .site-name {
+            font-size: 1.5em;
+        }
+
+        header .site-name a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        header nav ul li {
+            display: inline;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="site-name">
+        <a href="{{ path('home') }}">Wordbraise</a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="{{ path('article') }}">Articles</a></li>
+            <li><a>Login</a></li>
+
+        </ul>
+    </nav>
+</header>
+<main>
+    {% block body %}{% endblock %}
+</main>
+{# Ajoutez vos scripts JS ici #}
+</body>
 </html>

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+    <p>Voici nos articles</p>
+
+    <a href="{{ path('article_new') }}" class="btn btn-primary">Nouvel article</a>
+
+    <ul>
+        {% for article in articles %}
+            <li>{{ article.title }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
